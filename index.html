@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mati Store | Online Marketplace</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">Mati<span>Store</span></div>
+  <div class="search-wrap">
+    <input id="searchInput" type="search" placeholder="Search products...">
+    <button onclick="searchProducts()">Search</button>
+  </div>
+  <button class="cart-btn" onclick="openCart()">🛒 Cart <b id="cartCount">0</b></button>
+</header>
+
+<nav class="nav">
+  <button onclick="filterCategory('All')">All</button>
+  <button onclick="filterCategory('Fashion')">Fashion</button>
+  <button onclick="filterCategory('Mobiles')">Mobiles</button>
+  <button onclick="filterCategory('Electronics')">Electronics</button>
+  <button onclick="filterCategory('Shoes')">Shoes</button>
+  <button onclick="filterCategory('Home')">Home</button>
+  <button onclick="filterCategory('Accessories')">Accessories</button>
+</nav>
+
+<section class="hero">
+  <div>
+    <p class="eyebrow">WELCOME TO MATI STORE</p>
+    <h1>Everything you need, in one place.</h1>
+    <p>Shop fashion, mobiles, electronics, shoes, home items and accessories.</p>
+    <button class="shop-now" onclick="document.getElementById('products').scrollIntoView()">Shop Now →</button>
+  </div>
+  <div class="hero-card">
+    <div>🔥</div>
+    <h3>Today's Deals</h3>
+    <p>Great products. Simple shopping.</p>
+  </div>
+</section>
+
+<section class="categories">
+  <h2>Shop by Category</h2>
+  <div class="category-grid">
+    <button onclick="filterCategory('Fashion')">👕<span>Fashion</span></button>
+    <button onclick="filterCategory('Mobiles')">📱<span>Mobiles</span></button>
+    <button onclick="filterCategory('Electronics')">💻<span>Electronics</span></button>
+    <button onclick="filterCategory('Shoes')">👟<span>Shoes</span></button>
+    <button onclick="filterCategory('Home')">🏠<span>Home</span></button>
+    <button onclick="filterCategory('Accessories')">🎧<span>Accessories</span></button>
+  </div>
+</section>
+
+<main id="products" class="products-section">
+  <div class="section-head">
+    <div>
+      <p class="eyebrow">OUR PRODUCTS</p>
+      <h2 id="sectionTitle">All Products</h2>
+    </div>
+    <select id="sortSelect" onchange="sortProducts()">
+      <option value="default">Sort by</option>
+      <option value="low">Price: Low to High</option>
+      <option value="high">Price: High to Low</option>
+      <option value="name">Name</option>
+    </select>
+  </div>
+  <div id="productGrid" class="product-grid"></div>
+</main>
+
+<footer>
+  <div>
+    <div class="logo">Mati<span>Store</span></div>
+    <p>Your simple online marketplace.</p>
+  </div>
+  <div>
+    <h3>Customer Care</h3>
+    <p>Contact: support@matistore.example</p>
+    <p>Mon-Sat: 9 AM - 8 PM</p>
+  </div>
+  <div>
+    <h3>Quick Links</h3>
+    <p>Privacy · Terms · Returns</p>
+  </div>
+</footer>
+
+<div id="cartModal" class="modal hidden">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h2>Your Cart</h2>
+      <button onclick="closeCart()">✕</button>
+    </div>
+    <div id="cartItems"></div>
+    <div class="cart-total">
+      <span>Total</span><strong id="cartTotal">Rs 0</strong>
+    </div>
+    <button class="checkout" onclick="checkout()">Proceed to Checkout</button>
+  </div>
+</div>
+
+<div id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
